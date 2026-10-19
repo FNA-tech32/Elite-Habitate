@@ -1,0 +1,133 @@
+.contact-columns {
+    margin-top: 1em;
+    display: grid;
+    gap: 1.5em;
+}
+.info__cards {
+    width: 100%;
+}
+@media (min-width: 1024px) {
+    .contact-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.card {
+    margin-bottom: .8em;
+}
+.card__title {
+    font-size: map-get($size, subtitle);
+    font-family: josefin-semibold;
+    margin-bottom: .5rem;
+}
+.card__link {
+    @include links(unemphasis);
+    font-size: map-get($size, description);
+}
+.card__link::before {
+    display: none;
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    content: "\f35d ";
+}
+.card__link:hover::before {
+    display: inline;
+}
+
+.info__social-media {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.link {
+    overflow: hidden;
+    font-size: map-get($size, description);
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    padding: .5em 1.5em;
+    border: none;
+    background: map-get($colors, yaleBlue);
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    --btn-dimensions: 1px;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--btn-dimensions);
+        height: var(--btn-dimensions);
+        border-radius: 50%;
+        z-index: -1;
+        background-color: map-get($colors, spanishBlue);
+        transition: width 500ms ease-in-out,
+        height 500ms ease-in-out;
+    }
+
+    &:hover::after {
+        --btn-dimensions: 90px;
+    }
+}
+.contact-form__submit {
+    width: 100%;
+}
+.contact-form__submit[disabled=""] {
+    pointer-events: none;
+    filter: opacity(.7);
+}
+.contact-form__msg {
+    font-size: map-get($size, description);
+    margin-bottom: .3em;
+}
+
+.contact-form__title {
+    font-size: map-get($size, subtitle);
+    margin-bottom: .5em;
+}
+.group {
+    font-size: map-get($size, description);
+}
+.group__label {
+    font-size: inherit;
+    display: inline-block;
+    margin-bottom: .1em;
+}
+.group__input {
+    font-size: inherit;
+    display: block;
+    width: 100%;
+
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: none;
+
+    border: 1px solid;
+    padding: .3em;
+    margin-bottom: 0.8em;
+}
+
+.mision-vision {
+    display: grid;
+    gap: 1.5em;
+}
+
+.mision__title, .vision__title, .history__title {
+    font-size: map-get($size, subtitle);
+    font-family: josefin-bold;
+}
+.mision__description, .vision__description, .history__description {
+    font-size: map-get($size, description);
+    text-align: justify;
+    line-height: 1.5em;
+}
